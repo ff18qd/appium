@@ -13,3 +13,12 @@ https://github.com/appium/appium/tree/master/sample-code/javascript-webdriverio
 
 ## What's next?
 Use mocha and chai to rewrite the test
+Add mocha and chai development dependency by 
+npm install mocha --save-dev
+npm install chai --save-dev
+
+## How to run the test in index.js?
+Using `node index.js`
+Using 'npx mocha /path/to/test/file'
+
+Reference: http://appium.io/docs/en/about-appium/getting-started/

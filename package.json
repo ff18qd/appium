@@ -1,6 +1,7 @@
 {
   "name": "appium",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,5 +12,11 @@
   "license": "ISC",
   "dependencies": {
     "webdriverio": "^6.10.5"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.14",
+    "@types/mocha": "^8.0.4",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1"
   }
 }
