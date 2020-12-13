@@ -1,5 +1,5 @@
 const wdio = require('webdriverio');
-// const assert = require('chai').assert;
+const assert = require('chai').assert;
 const expect = require('chai').expect;
 
 const opts = {
@@ -16,27 +16,29 @@ const opts = {
     }
 };
 
-describe('first test', function () {
-    it('can print out something', function () {
-        expect(true).to.be.true;
-    });
-});
+describe('first test case', function () {
+    let client;
 
-// describe('first test case', function () {
-//     let client;
-//
-//     before(async function () {
-//         client = await wdio.remote(opts);
-//     });
-//
-//     after(async function () {
-//         return await client.deleteSession();
-//     });
-//
-//     it('can open the Android app', async function () {
-//         const field = await client.$("android.widget.EditText");
-//         await field.setValue("Hello World!");
-//         const value = field.getText();
-//         assert .equal(value, "Hello World!");
-//     })
-// });
+    before(async function () {
+        client = await wdio.remote(opts);
+    });
+
+    after(async function () {
+        return await client.deleteSession();
+    });
+
+    it('can open the Demo Android app', async function () {
+        const current_package = await client.getCurrentPackage();
+        assert.equal(current_package, 'io.appium.android.apis');
+
+        const current_activity = await client.getCurrentActivity();
+        assert.equal(current_activity, '.view.TextFields');
+    });
+
+    it('can input text', async function() {
+        const element = await client.$('android.widget.EditText');
+        await element.addValue('Hello World!');
+        const value = await element.getText();
+        assert.equal(value, 'Hello World!');
+    })
+});

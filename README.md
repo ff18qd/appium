@@ -19,6 +19,6 @@ npm install chai --save-dev
 
 ## How to run the test in index.js?
 Using `node index.js`
-Using 'npx mocha /path/to/test/file'
+Using 'npx mocha /path/to/test/file -t 1800000'
 
 Reference: http://appium.io/docs/en/about-appium/getting-started/
